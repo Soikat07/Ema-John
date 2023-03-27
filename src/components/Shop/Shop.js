@@ -1,21 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import Cart from '../../Cart/Cart';
+import Cart from '../Cart/Cart';
+import { addToDb, getShoppingCart } from '../../utilities/fakeDb';
 import Product from '../Product/Product';
 import './Shop.css'
 const Shop = () => {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+//get data from json file
   useEffect(() => {
     fetch('products.json')
     .then(res =>res.json())
     .then(data =>setProducts(data))
   }, [])
+// get data from local storage
+useEffect(() => {
+  const storedCart = getShoppingCart();
+  const savedProductArray = [];
+  // step 1: get id
+  for (const id in storedCart) {
 
+  //step 2: get the product by using id  
+    const savedProducts = products.find(product => product.id === id);
+    if (savedProducts) {
+      //step 3: get the quantity of the product
+      const quantity = storedCart[id];
+      savedProducts.quantity = quantity;
+      // step 4: push the products into the array
+      savedProductArray.push(savedProducts);
+    }
+    console.log(savedProducts);
+  }
+  // step 5: set the new carts array into the cart
+  setCart(savedProductArray);
+
+  }, [products])
+  
   const handleAddToCart = product => {
     // cart.push(product);
     const newCart = [...cart, product];
     setCart(newCart);
+    addToDb(product.id)
   }
 
   return (
