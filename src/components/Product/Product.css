@@ -3,14 +3,14 @@
   height: 510px;
   width: 300px;
   border: 1px solid #95a0a7;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-bottom: 30px;
 }
 .product img {
   height: 286px;
   width: 286px;
   margin: 8px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .product-info {
   padding-left: 15px;
@@ -31,7 +31,7 @@
   bottom: 0;
   background-color: #f7d097;
   border: 1px solid #95a0a7;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 8px 8px;
 }
 .btn-cart:hover {
   background-color: orange;
