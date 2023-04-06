@@ -8,3 +8,11 @@
   padding-top: 90px;
   padding-left: 70px;
 }
+.btn-review{
+  width: 100%;
+  background-color:#FF9900 ;
+  color: white;
+  margin-top: 8px;
+  padding: 10px;
+  border: none;
+}

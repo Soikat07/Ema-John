@@ -16,3 +16,15 @@
   font-weight: 400;
   font-size: 20px;
 }
+.btn-clear-cart{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color:#FF3030 ;
+  color: white;
+  padding: 10px;
+  border: none;
+}
+.btn-clear-cart :hover{
+  border-color: aqua;
+}

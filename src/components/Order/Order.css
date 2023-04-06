@@ -2,3 +2,16 @@
   margin-top: 50px;
   margin-left: 100px;
 }
+.btn-checkout{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color:#FF9900 ;
+  color: white;
+  margin-top: 8px;
+  padding: 10px;
+  border: none;
+}
+.link{
+  text-decoration: none; 
+}
