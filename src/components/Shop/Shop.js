@@ -13,28 +13,28 @@ const Shop = () => {
     .then(res =>res.json())
     .then(data =>setProducts(data))
   }, [])
-// get data from local storage
-useEffect(() => {
-  const storedCart = getShoppingCart();
-  const savedProductArray = [];
-  // step 1: get id
-  for (const id in storedCart) {
+  // get data from local storage
+    useEffect(() => {
+    const storedCart = getShoppingCart();
+    const savedProductArray = [];
+    // step 1: get id
+    for (const id in storedCart) {
 
-  //step 2: get the product by using id  
-    const savedProducts = products.find(product => product.id === id);
-    if (savedProducts) {
-      //step 3: get the quantity of the product
-      const quantity = storedCart[id];
-      savedProducts.quantity = quantity;
-      // step 4: push the products into the array
-      savedProductArray.push(savedProducts);
+    //step 2: get the product by using id  
+      const savedProducts = products.find(product => product.id === id);
+      if (savedProducts) {
+        //step 3: get the quantity of the product
+        const quantity = storedCart[id];
+        savedProducts.quantity = quantity;
+        // step 4: push the products into the array
+        savedProductArray.push(savedProducts);
+      }
+      // console.log(savedProducts);
     }
-    // console.log(savedProducts);
-  }
-  // step 5: set the new carts array into the cart
-  setCart(savedProductArray);
+    // step 5: set the new carts array into the cart
+    setCart(savedProductArray);
 
-  }, [products])
+    }, [products])
   
   const handleAddToCart = product => {
     let newCart = [];
